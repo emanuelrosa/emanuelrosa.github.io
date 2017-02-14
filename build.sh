@@ -17,13 +17,18 @@ ls -a
 # rm -rf ./*[.]?*
 # rm -rf ./.
 # rm -rf ./*.*
-
 # rm ./.gitignore
 
-# find . -name . -o -exec rm -rf -- {} + # ok, remove tudooo
 # find . ! -path './.git' -type f -exec rm -f {} +
 # find . ! -path './.git' -type f -exec rm -f -- {} +
-find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
+# find . -name . -o -path "./.git" -prune -o -exec rm -rf -- {} +
+# find . -path ./.git -prune -o -exec rm -rf -- {} +
+# find . -path ./.git -o -exec rm -rf -- {} +
+
+# find . -name . -o -exec rm -rf -- {} + ### ok, remove tudo
+# find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null ### ok, remove tudo, exceto a pasta .git
+# find . -name . -o \( -path "./.git" -or -path "./pasta2" \) -prune -o -exec rm -rf -- {} + ### ok, remove tudo, exceto a pasta .git e pasta2
+find . -name . -o -path "./.git" -prune -o -exec rm -rf -- {} + ### ok, remove tudo, exceto a pasta .git
 
 pwd
 echo 'its clear?'
