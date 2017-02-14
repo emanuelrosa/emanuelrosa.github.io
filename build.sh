@@ -21,7 +21,9 @@ ls -a
 # rm ./.gitignore
 
 # find . -name . -o -exec rm -rf -- {} + # ok, remove tudooo
-find . ! -path './.git' -type f -exec rm -f {} +
+# find . ! -path './.git' -type f -exec rm -f {} +
+# find . ! -path './.git' -type f -exec rm -f -- {} +
+find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
 
 pwd
 echo 'its clear?'
