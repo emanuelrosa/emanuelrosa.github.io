@@ -27,6 +27,11 @@ pwd
 echo 'its clear?'
 ls -a
 
+cd ./.git
+ls -a
+
+cd ..
+
 cp -r ../www/* .
 
 pwd
